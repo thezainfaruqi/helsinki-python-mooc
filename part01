@@ -1,0 +1,27 @@
+part01/README.md
+
+  #Reminder
+
+# Example folder structure
+helsinki-python-mooc/
+    ├── part01
+    ├── part02
+    ├── part03
+
+#Just one example; Already completed part one succesfully:
+
+from math import sqrt
+
+a = float(input("What is a: "))
+b = float(input("What is b: "))
+c = float(input("What is c: "))
+
+# Calculate the discriminant
+discriminant = b ** 2 - 4 * a * c 
+
+#Calculate the root
+root1 = (-b + sqrt(discriminant)) / (2 * a)
+root2 = (-b - sqrt(discriminant))/(2 * a)
+
+#Final print
+print(f"The roots are {root1} and {root2}")
