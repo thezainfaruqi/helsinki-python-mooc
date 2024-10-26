@@ -6,7 +6,7 @@ My solutions for the University of Helsinki's Python Programming MOOC
 My solutions for the University of Helsinki's Python Programming MOOC.
 
 ## Course Progress
-- [x] Part 1: Getting started *(update these as you complete them)*
+- [x] Part 1: Getting started 
 - [ ] Part 2: Loops
 - [ ] Part 3: Functions
 - [ ] Part 4: Lists
