@@ -1,0 +1,90 @@
+#Loops with condition :)
+
+# Ask the user for the upper limit
+upperLimit = int(input("Upper limit: "))
+
+# Initialize the first power of two
+number = 1
+a
+# Loop to print powers of two until exceeding the upper limit
+while number <= upperLimit:
+    print(number)
+    number *= 2
+
+-----------------------------------------------------------------------------------------
+
+upper_limit = int(input("Upper limit: "))
+
+# Initialize a counter
+num = 1
+
+# Use a while loop to print numbers from 1 to upper_limit - 1
+while num < upper_limit:
+    print(num)
+    num += 1
+
+-----------------------------------------------------------------------------------------
+
+print("Are you ready?")
+number = int(input("Please type in a number: "))
+print(number)
+
+while number > 1:
+    number -= 1
+    print(number)
+
+print("Now!")
+
+-----------------------------------------------------------------------------------------
+
+
+# Ask the user for the upper limit
+upperLimit = int(input("Upper limit: "))
+base = int(input("Base:"))
+# Initialize the first power of two
+number = 1
+
+# Loop to print powers of two until exceeding the upper limit
+while number <= upperLimit:
+    print(number)
+    number *= base
+
+-----------------------------------------------------------------------------------------
+
+# Ask the user for the limit
+limit = int(input("Limit: "))
+
+# Initialize variables for sum and the current number
+current_sum = 0
+number = 0
+
+# Loop to keep adding numbers until the sum reaches or exceeds the limit
+while current_sum < limit:
+    number += 1  # Move to the next consecutive number
+    current_sum += number  # Add it to the sum
+
+print(current_sum)
+
+-----------------------------------------------------------------------------------------
+
+# Ask the user for the limit
+limit = int(input("Limit: "))
+
+# Initialize variables for the sum and the current number
+current_sum = 0
+number = 0
+output = "The consecutive sum: "  # Start building the output string
+
+# Loop to keep adding numbers until the sum reaches or exceeds the limit
+while current_sum < limit:
+    number += 1  # Increment the number
+    current_sum += number  # Add it to the sum
+
+    # Build the output string step-by-step
+    if number == 1:
+        output += f"{number}"  # First number, no plus sign
+    else:
+        output += f" + {number}"  # Add a plus sign before subsequent numbers
+
+# Print the final equation and result
+print(f"{output} = {current_sum}")
