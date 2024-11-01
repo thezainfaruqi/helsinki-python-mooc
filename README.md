@@ -6,10 +6,14 @@ My solutions for the University of Helsinki's Python Programming MOOC
 My solutions for the University of Helsinki's Python Programming MOOC.
 
 ## Course Progress
-- [ ] Part 1: Getting started 
-- [ ] Part 2: Loops
-- [ ] Part 3: Functions
-- [ ] Part 4: Lists
+- [ ] Part 1 
+- [ ] Part 2
+- [x] Part 3 
+- [ ] Part 4
+- [ ] Part 5
+- [ ] Part 6
+- [ ] Part 7 
+- [ ] Part 8
 *(continue with other parts)*
 
 ## Repository Structure
