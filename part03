@@ -1,0 +1,49 @@
+string = (input("Please type in a string:"))
+
+if len(string) < 20:
+    x = (20 - len(string))
+    math = "*" * x
+    print(f"{math}{string}")
+else:
+    print(string)
+
+-----------------------------------------------------------------------
+
+word = input("Word: ")
+
+frame_width = 30
+
+padding = (frame_width - len(word) - 2) // 2  
+
+print('*' * frame_width)
+
+print('*' + ' ' * padding + word + ' ' * (frame_width - len(word) - padding - 2) + '*')
+
+print('*' * frame_width)
+
+-----------------------------------------------------------------------
+
+string = input("Please type in a string:")
+
+number = 0
+
+while True:
+    number += 1
+    sequence = (string[0:number])
+    print(sequence)
+    if sequence == string:
+        break
+
+-----------------------------------------------------------------------
+
+string = input("Please type in a string: ")
+vowels = "aeo"
+index = 0
+ 
+while index < len(vowels):
+    vowel = vowels[index]
+    if vowel in string:
+        print(vowel, "found")
+    else:
+        print(vowel, "not found")
+    index += 1
