@@ -14,7 +14,7 @@ My solutions for the University of Helsinki's Python Programming MOOC.
 - [ ] Part 6
 - [ ] Part 7 
 - [ ] Part 8
-*(continue with other parts)*
+
 
 ## Repository Structure
 ```python
