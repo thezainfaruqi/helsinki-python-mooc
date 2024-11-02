@@ -47,3 +47,23 @@ while index < len(vowels):
     else:
         print(vowel, "not found")
     index += 1
+
+-----------------------------------------------------------------------
+
+word = input("Enter a string (at least 3 characters long): ")
+character = input("Enter a character to look for: ")
+
+# Start finding substrings
+index = word.find(character)
+
+while index != -1 and len(word) >= index + 3:
+    print(word[index:index + 3]) 
+    index = word.find(character, index + 1)
+
+
+word = input("Please type in a word: ")
+character = input("Please type in a character: ")
+ 
+index = word.find(character)
+if index!=-1 and len(word)>=index+3:
+    print(word[index:index+3])
