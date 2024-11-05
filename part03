@@ -68,3 +68,23 @@ character = input("Please type in a character: ")
 index = word.find(character)
 if index!=-1 and len(word)>=index+3:
     print(word[index:index+3])
+
+-----------------------------------------------------------------------
+
+def chessboard(number):
+    row = 0  # Initialize the row counter
+    while row < number:  # Continue until we've printed the desired number of rows
+        if row % 2 == 0:  # For even rows
+            line = "10" * (number // 2) + "1" * (number % 2)  # Create the pattern for even rows
+        else:  # For odd rows
+            line = "01" * (number // 2) + "0" * (number % 2)  # Create the pattern for odd rows
+        
+        print(line)  # Print the current row
+        row += 1  # Move to the next row
+
+# Testing the function
+if __name__ == "__main__":
+    chessboard(5)
+
+-----------------------------------------------------------------------
+
