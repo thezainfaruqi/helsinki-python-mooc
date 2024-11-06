@@ -112,3 +112,5 @@ def chessboard(size):
         # Remove extra characters at the end of the row
         print(row[0:size])
         i += 1
+
+-----------------------------------------------------------------------
