@@ -125,3 +125,5 @@ def squared(characters, size):
         row += characters[i % len(characters)]
         i += 1
     print(row)
+
+-----------------------------------------------------------------------
