@@ -1,0 +1,17 @@
+def palindromes(word):
+    word = word.lower()  # Convert the word to lowercase to make the check case-insensitive
+    length = len(word)  # Get the length of the word
+
+    # Check if the word is equal to its reverse by comparing characters from both ends
+    for i in range(length // 2):
+        if word[i] != word[length - 1 - i]:  # Compare first and last, second and second last, and so on
+            return False  # If any characters don't match, it's not a palindrome
+    return True  # If all characters match, it is a palindrome
+while True:
+    check = input("Please type in a palindrome: ")
+    hehe = (palindromes(check))
+    if hehe == False:
+        print("that wasn't a palindrome")
+    else:
+        print(f"{check} is a palindrome!")
+        break
