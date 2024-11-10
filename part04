@@ -15,3 +15,121 @@ while True:
     else:
         print(f"{check} is a palindrome!")
         break
+
+--------------------------------------------------------------------------------------
+
+def percentage(numofexercise):
+    percent = []
+    for x in numofexercise:
+        if x == 100:
+            x = 10  # 100 exercises = 10 points
+        elif x >= 90:
+            x = 9   # 90-99 exercises = 9 points
+        elif x >= 80:
+            x = 8   # 80-89 exercises = 8 points
+        elif x >= 70:
+            x = 7   # 70-79 exercises = 7 points
+        elif x >= 60:
+            x = 6   # 60-69 exercises = 6 points
+        elif x >= 50:
+            x = 5   # 50-59 exercises = 5 points
+        elif x >= 40:
+            x = 4   # 40-49 exercises = 4 points
+        elif x >= 30:
+            x = 3   # 30-39 exercises = 3 points
+        elif x >= 20:
+            x = 2   # 20-29 exercises = 2 points
+        elif x >= 10:
+            x = 1   # 10-19 exercises = 1 point
+        else:
+            x = 0   # Less than 10 exercises = 0 points
+        
+        percent.append(x)
+    
+    return percent
+
+def result():
+    exampoints = []
+    numofexercise = []
+    while True:
+        user_input = input("Exam points and exercises completed: ")
+        if user_input == "":
+            break
+        use = user_input.split(" ")
+        examPoints = int(use[0])
+        numofExercise = int(use[1])
+        exampoints.append(examPoints)
+        numofexercise.append(numofExercise)
+    
+    return exampoints, numofexercise
+
+def calculate_grades(exampoints, numofexercise):
+    exercise_points = percentage(numofexercise)
+    grades = []
+    
+    for x in range(len(exampoints)):
+        total_points = exampoints[x] + exercise_points[x]
+        
+        if exampoints[x] < 10:
+            grade = 0  # Automatic fail if exam points < 10
+        elif total_points >= 28:
+            grade = 5
+        elif total_points >= 24:
+            grade = 4
+        elif total_points >= 21:
+            grade = 3
+        elif total_points >= 18:
+            grade = 2
+        elif total_points >= 15:
+            grade = 1
+        else:
+            grade = 0  # Fail
+        
+        grades.append(grade)
+    
+    return grades, exercise_points
+
+def average_grade(grades):
+    passing_grades = [grade for grade in grades if grade > 0]
+    if len(passing_grades) == 0:
+        return 0
+
+    return sum(passing_grades) / len(passing_grades)
+
+def pass_percentage(grades):
+    passing_students = len([grade for grade in grades if grade > 0])
+    total_students = len(grades)
+    if total_students == 0:
+        return 0
+    return (passing_students / total_students) * 100
+
+def grade_distribution(grades):
+    distribution = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0, 0: 0}
+    for grade in grades:
+        distribution[grade] += 1
+    return distribution
+
+def statistics(exampoints, numofexercise):
+    grades, exercise_points = calculate_grades(exampoints, numofexercise)
+    
+    # Average of points (exam + exercise points)
+    total_points = [exampoints[i] + exercise_points[i] for i in range(len(exampoints))]
+    pointavg = sum(total_points) / len(total_points)
+
+    # Pass percentage
+    passing_percentage_value = pass_percentage(grades)
+    
+    # Grade distribution
+    distribution = grade_distribution(grades)
+    
+    # Printing the statistics
+    print("Statistics:")
+    print(f"Points average: {pointavg:.1f}")
+    print(f"Pass percentage: {passing_percentage_value:.1f}")
+    print("Grade distribution:")
+    for grade in range(5, -1, -1):
+        print(f"  {grade}: {'*' * distribution[grade]}")
+
+# Run the program
+exampoints, numofexercise = result()
+statistics(exampoints, numofexercise)
