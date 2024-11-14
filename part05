@@ -91,3 +91,5 @@ if __name__ == "__main__":
     ]
 
     print(sudoku_grid_correct(sudoku2))  # Output: True
+
+Re practice the concept about the 2d list 
