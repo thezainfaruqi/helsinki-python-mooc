@@ -15,8 +15,8 @@ if __name__ == "__main__":
     strings = ["hi", "hiya", "hello", "howdydoody", "hi there"]
     print(longest(strings))
 
-
 -------------------------------------------------------------------------------------------
+
 def row_correct(sudoku: list, row_no: int):
     numbers = []
     for number in sudoku[row_no]:
@@ -93,3 +93,39 @@ if __name__ == "__main__":
     print(sudoku_grid_correct(sudoku2))  # Output: True
 
 Re practice the concept about the 2d list 
+
+
+-------------------------------------------------------------------------------------------
+Learning a new data structure called hashmaps :)
+
+def dict_of_numbers():
+    # Dictionaries to handle number words
+    ones = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+    tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+
+    newDic = {}
+    for number in range(100):
+        if number < 10:
+            newDic[number] = ones[number]
+        
+        elif number < 20:
+            newDic[number] = teens[number - 10]
+
+        else: 
+            bigNumber = (number // 10) # 9
+            findOnes = (number % 10) # 9
+            if findOnes == 0:
+                newDic[number] = tens[bigNumber]
+            else:
+                newDic[number] = f"{tens[bigNumber]}-{ones[findOnes]}"
+    return newDic
+
+if __name__ == "__main__":
+    numbers = dict_of_numbers()
+    print(numbers[2])    # Output: two
+    print(numbers[11])   # Output: eleven
+    print(numbers[45])   # Output: forty-five
+    print(numbers[99])   # Output: ninety-nine
+    print(numbers[30])    # Output: 
+
