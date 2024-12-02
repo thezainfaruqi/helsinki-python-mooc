@@ -10,8 +10,8 @@ My solutions for the University of Helsinki's Python Programming MOOC.
 - [ ] Part 2
 - [ ] Part 3 
 - [ ] Part 4
-- [x] Part 5
-- [ ] Part 6
+- [ ] Part 5
+- [x] Part 6
 - [ ] Part 7 
 - [ ] Part 8
 
