@@ -96,6 +96,7 @@ Re practice the concept about the 2d list
 
 
 -------------------------------------------------------------------------------------------
+
 Learning a new data structure called hashmaps :)
 
 def dict_of_numbers():
@@ -128,6 +129,8 @@ if __name__ == "__main__":
     print(numbers[45])   # Output: forty-five
     print(numbers[99])   # Output: ninety-nine
     print(numbers[30])    # Output: 
+
+-------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------
 
