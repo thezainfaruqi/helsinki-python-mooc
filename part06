@@ -1,0 +1,96 @@
+Learning cvs file's
+
+# Get input file names
+student_data = input("Student information: ")
+exercise_data = input("Exercises completed: ")
+exam_data = input("Exam points: ")
+course_data = input("Course information: ")
+
+# Dictionaries to store data
+students = {}
+exercises = {}
+exam_points = {}
+
+# Read the student information file
+with open(student_data, "r") as file:
+    for line in file:
+        parts = line.strip().split(";")
+        if parts[0] == "id":  # Skip header
+            continue
+        student_id = parts[0]
+        full_name = f"{parts[1]} {parts[2]}"
+        students[student_id] = full_name
+
+# Read the exercises file
+with open(exercise_data, "r") as file:
+    for line in file:
+        parts = line.strip().split(";")
+        if parts[0] == "id":  # Skip header
+            continue
+        student_id = parts[0]
+        total_exercises = sum(int(x) for x in parts[1:])
+        exercises[student_id] = total_exercises
+
+# Read the exam points file
+with open(exam_data, "r") as file:
+    for line in file:
+        parts = line.strip().split(";")
+        if parts[0] == "id":  # Skip header
+            continue
+        student_id = parts[0]
+        total_exam_points = sum(int(x) for x in parts[1:])
+        exam_points[student_id] = total_exam_points
+
+# Read the course information
+with open(course_data) as file:
+    for line in file:
+        line = line.strip()  # Clean up whitespace
+        
+        # Extract the course name
+        if "name:" in line:
+            course_name = line.split(": ")[1]
+        
+        # Extract the study credits
+        elif "study credits:" in line:
+            study_credits = line.split(": ")[1]
+
+# Write results to result.txt and results.csv
+with open("results.txt", "w") as result_file, open("results.csv", "w") as csv_file:
+    # Write course information to results.txt
+    result_file.write(f"{course_name}, {study_credits} credits\n")
+    result_file.write("=" * 38 + "\n")  # Separator
+    result_file.write(f"{'name':<30}{'exec_nbr':<10}{'exec_pts.':<10}{'exm_pts.':<10}{'tot_pts.':<10}{'grade':<10}\n")
+    
+    for student_id, name in students.items():
+        # Calculate exercise points (0-10)
+        exercise_total = exercises.get(student_id, 0)
+        exercise_point = min(10, exercise_total // 4)
+
+        # Get exam points
+        exam_point = exam_points.get(student_id, 0)
+
+        # Calculate total points and grade
+        total_points = exercise_point + exam_point
+
+        # Determine grade based on total points
+        if total_points < 15:
+            grade = 0
+        elif total_points < 18:
+            grade = 1
+        elif total_points < 21:
+            grade = 2
+        elif total_points < 24:
+            grade = 3
+        elif total_points < 28:
+            grade = 4
+        else:
+            grade = 5
+
+        # Write to results.txt
+        result_file.write(f"{name:<30}{exercise_total:<10}{exercise_point:<10}{exam_point:<10}{total_points:<10}{grade:<10}\n")
+        
+        # Write to results.csv
+        csv_file.write(f"{student_id};{name};{grade}\n")
+
+# Print confirmation message
+print("Results written to files results.txt and results.csv")
