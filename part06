@@ -97,4 +97,42 @@ print("Results written to files results.txt and results.csv")
 
 -------------------------------------------------------------------------------------------
 
-Just did some neetcode today!
+def filter_incorrect():
+    with open("lottery_numbers.csv") as newfile, open("correct_numbers.csv", "w") as correctfile:
+        for line in newfile:
+            line = line.strip().split(";")
+            
+            week = line[0]
+            week_parts = week.split(" ")
+            try:
+                week_number = int(week_parts[1])
+            except ValueError:
+                print(f"Error: In {week}, the week number is not an integer!")
+                continue  
+            
+            number_str = line[1]
+            numbers = number_str.split(",")
+
+            if len(numbers) != 7:
+                print(f"Error: Week {week_number} must have exactly 7 numbers.")
+                continue  
+
+            try:
+                number_ints = [int(num) for num in numbers]
+            except ValueError:
+                print(f"Error: In {week}, one or more numbers are not integers!")
+                continue  
+            
+            if any(num < 1 or num > 39 for num in number_ints):
+                print(f"Error: In {week}, each number must be between 1 and 39 inclusive.")
+                continue  
+
+            if len(set(number_ints)) != len(number_ints):
+                print(f"Error: In {week}, there are duplicate numbers.")
+                continue  
+
+            correctfile.write(f"{line[0]};{line[1]}\n")
+
+if __name__ == "__main__":
+    filter_incorrect()
+
