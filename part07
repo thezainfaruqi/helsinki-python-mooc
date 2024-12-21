@@ -1,0 +1,64 @@
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited {amount}. New balance: {self.balance}")
+        else:
+            print("Deposit amount must be positive.")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient funds.")
+        elif amount > 0:
+            self.balance -= amount
+            print(f"Withdrew {amount}. Remaining balance: {self.balance}")
+        else:
+            print("Withdrawal amount must be positive.")
+
+    def __str__(self):
+        return f"Account owner: {self.owner}, Balance: {self.balance}"
+
+# Example usage:
+account = BankAccount("Zain", 100)
+print(account)  # Output: Account owner: Zain, Balance: 100
+
+account.deposit(50)  # Output: Deposited 50. New balance: 150
+account.withdraw(30)  # Output: Withdrew 30. Remaining balance: 120
+account.withdraw(200)  # Output: Insufficient funds.
+
+--------------------------------------------------------------------------------------------------
+
+ef analyze_exam_results(students):
+    if not students:
+        return "No students to analyze."
+    
+    # Find the highest scorer
+    highest_scorer = max(students, key=lambda student: student["score"])
+    highest_name = highest_scorer["name"]
+    
+    # Calculate the average score
+    total_score = sum(student["score"] for student in students)
+    average_score = total_score / len(students)
+    
+    # Find the students who failed
+    failed_students = [student["name"] for student in students if student["score"] < 40]
+    
+    return highest_name, average_score, failed_students
+
+# Example usage
+students = [
+    {"name": "Alice", "score": 85},
+    {"name": "Bob", "score": 32},
+    {"name": "Charlie", "score": 95},
+    {"name": "Diana", "score": 78},
+    {"name": "Eve", "score": 28},
+]
+
+result = analyze_exam_results(students)
+print("Highest Scorer:", result[0])  # Output: Charlie
+print("Average Score:", result[1])  # Output: ~63.6
+print("Failed Students:", result[2])  # Output: ['Bob', 'Eve']
