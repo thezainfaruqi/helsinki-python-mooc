@@ -62,3 +62,5 @@ result = analyze_exam_results(students)
 print("Highest Scorer:", result[0])  # Output: Charlie
 print("Average Score:", result[1])  # Output: ~63.6
 print("Failed Students:", result[2])  # Output: ['Bob', 'Eve']
+
+completed the anaylize exam result 
